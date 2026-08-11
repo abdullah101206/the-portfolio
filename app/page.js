@@ -195,8 +195,11 @@ export default function Portfolio() {
   const [activeSection, setActiveSection] = useState("");
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+
+  // Updated states for Web3Forms and Phone field
+  const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -222,13 +225,41 @@ export default function Portfolio() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleFormSubmit = (e) => {
+  // Web3Forms API Integration
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
-    setFormSubmitted(true);
-    setTimeout(() => {
-      setFormData({ name: "", email: "", message: "" });
-      setFormSubmitted(false);
-    }, 4000);
+    setLoading(true);
+
+    const data = new FormData();
+    data.append("access_key", "39f1da46-aaaa-4de9-ac9b-edb249d41075");
+    data.append("name", formData.name);
+    data.append("email", formData.email);
+    data.append("phone", formData.phone);
+    data.append("message", formData.message);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: data,
+      });
+
+      const res = await response.json();
+
+      if (res.success) {
+        setFormSubmitted(true);
+        setTimeout(() => {
+          setFormData({ name: "", email: "", phone: "", message: "" });
+          setFormSubmitted(false);
+        }, 4000);
+      } else {
+        alert("Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Error sending message. Please check your connection.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const scrollToTop = () => {
@@ -758,7 +789,6 @@ export default function Portfolio() {
             </div>
           </div>
         </section>
-
         {/* Contact Section */}
         <section id="contact" className="py-20 relative bg-gray-950/50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -866,7 +896,21 @@ export default function Portfolio() {
                           required
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                          placeholder="jane@example.com"
+                          placeholder="jane@gmail.com"
+                          className="w-full px-4 py-3 rounded-xl bg-gray-900 border border-gray-800 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-500 transition-colors text-sm"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">
+                          Phone Number
+                        </label>
+                        <input
+                          type="tel"
+                          required
+                          value={formData.phone}
+                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                          placeholder="+92 300 1234567"
                           className="w-full px-4 py-3 rounded-xl bg-gray-900 border border-gray-800 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-500 transition-colors text-sm"
                         />
                       </div>
@@ -887,9 +931,10 @@ export default function Portfolio() {
 
                       <button
                         type="submit"
-                        className="w-full py-4 rounded-xl font-semibold text-white bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-500 hover:opacity-95 transition-all shadow-lg shadow-purple-500/20 flex items-center justify-center space-x-2"
+                        disabled={loading}
+                        className="w-full py-4 rounded-xl font-semibold text-white bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-500 hover:opacity-95 transition-all shadow-lg shadow-purple-500/20 flex items-center justify-center space-x-2 disabled:opacity-50"
                       >
-                        <span>Send Message</span>
+                        <span>{loading ? "Sending..." : "Send Message"}</span>
                         <Send size={16} />
                       </button>
                     </form>
