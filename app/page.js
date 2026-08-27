@@ -68,11 +68,19 @@ const SKILLS = {
 
 const PROJECTS = [
   {
-    title: "City Vets Pet Clinic",
+    title: "The Aura Store",
     description:
-      "Full-service web platform built for a modern pet clinic offering appointment booking, service showcases, and client communication tools.",
-    tags: ["React", "Next.js", "Tailwind CSS", "Node.js"],
-    live: "https://www.cityvetspetclinic.com/",
+      "A modern full-stack e-commerce platform offering seamless product browsing, active cart management, dynamic category filtering, and secure checkout workflows.",
+    tags: ["Next.js", "React", "Tailwind CSS", "Node.js", "Express", "MongoDB"],
+    live: "https://the-aura-store.vercel.app/",
+    category: "Full-Stack Web App",
+  },
+  {
+    title: "Flavor Haven Restaurant",
+    description:
+      "Interactive restaurant web experience highlighting online menu exploration, table reservations, and automated image compression.",
+    tags: ["Next.js", "Tailwind CSS", "Node.js", "MongoDB"],
+    live: "https://flavor-haven-two.vercel.app/",
     category: "Full-Stack Web App",
   },
   {
@@ -82,6 +90,14 @@ const PROJECTS = [
     tags: ["Next.js", "Tailwind CSS", "Framer Motion", "API Integration"],
     live: "https://jabai-seven.vercel.app/",
     category: "GYM Web Application",
+  },
+  {
+    title: "City Vets Pet Clinic",
+    description:
+      "Full-service web platform built for a modern pet clinic offering appointment booking, service showcases, and client communication tools.",
+    tags: ["React", "Next.js", "Tailwind CSS", "Node.js"],
+    live: "https://www.cityvetspetclinic.com/",
+    category: "Full-Stack Web App",
   },
   {
     title: "Royal Stay Hotel",
@@ -98,14 +114,6 @@ const PROJECTS = [
     tags: ["React", "Tailwind CSS", "Framer Motion"],
     live: "https://the-travelx.netlify.app/",
     category: "Landing Page",
-  },
-  {
-    title: "Flavor Haven Restaurant",
-    description:
-      "Interactive restaurant web experience highlighting online menu exploration, table reservations, and automated image compression.",
-    tags: ["Next.js", "Tailwind CSS", "Node.js", "MongoDB"],
-    live: "https://flavor-haven-two.vercel.app/",
-    category: "Full-Stack Web App",
   },
 ];
 
