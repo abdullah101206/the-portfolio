@@ -62,7 +62,6 @@ const SKILLS = {
     { name: "Cursor AI ", },
     { name: "Claude", },
     { name: "Vercel", },
-    { name: "Netlify", },
   ],
 };
 
@@ -395,7 +394,7 @@ export default function Portfolio() {
                   variants={fadeInUp}
                   className="text-lg sm:text-xl text-gray-400 font-medium"
                 >
-                  Frontend / Full-Stack Developer
+                  Full-Stack Developer
                 </motion.p>
 
                 <motion.p
@@ -448,7 +447,7 @@ export default function Portfolio() {
                       <p><span className="text-purple-400">const</span> <span className="text-blue-400">developer</span> = &#123;</p>
                       <p className="pl-4"><span className="text-cyan-400">name</span>: <span className="text-emerald-400">&quot;Abdullah Waheed&quot;</span>,</p>
 
-                      <p className="pl-4"><span className="text-cyan-400">role</span>: <span className="text-emerald-400">&quot;Frontend / Full-Stack Developer&quot;</span>,</p>
+                      <p className="pl-4"><span className="text-cyan-400">role</span>: <span className="text-emerald-400">&quot;Full-Stack Developer&quot;</span>,</p>
                       <p className="pl-4"><span className="text-cyan-400">stack</span>: [<span className="text-emerald-400">&quot;Next.js&quot;</span>, <span className="text-emerald-400">&quot;Node.js&quot;</span>, <span className="text-emerald-400">&quot;MongoDB&quot;</span>],</p>
 
                       <p className="pl-4"><span className="text-cyan-400">passion</span>: <span className="text-emerald-400">&quot;Crafting Digital Value&quot;</span></p>
@@ -524,7 +523,7 @@ export default function Portfolio() {
                   Creating business value through code and modern engineering
                 </h3>
                 <p className="leading-relaxed">
-                  I am a motivated Frontend / Full-Stack Developer with a deep focus on crafting clean, responsive, and performance-driven digital products. Whether working with growing startups or established businesses, my priority is delivering reliable web applications that solve real-world problems.
+                  I am a motivated Full-Stack Developer with a deep focus on crafting clean, responsive, and performance-driven digital products. Whether working with growing startups or established businesses, my priority is delivering reliable web applications that solve real-world problems.
                 </p>
                 <p className="leading-relaxed">
                   My experience spans frontend user interface design using Next.js and Tailwind CSS as well as backend REST API design, database structures, and performance optimizations. I take pride in writing scalable code that ensures long-term viability.
